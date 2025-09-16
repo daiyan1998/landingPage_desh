@@ -1,0 +1,83 @@
+@import "tailwindcss";
+:root {
+  font-family: "poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@keyframes spinIcons {
+  0% {
+    transform: rotate(calc(360deg / 5 * var(--i))) translateX(9rem)
+      rotate(calc(-360deg / 5 * var(--i)));
+  }
+  100% {
+    transform: rotate(calc(360deg / 5 * var(--i) + 360deg)) translateX(9rem)
+      rotate(calc(-360deg / 5 * var(--i) - 360deg));
+  }
+}
+
+.wave {
+  position: absolute;
+  height: 350px;
+  width: 100%;
+  background: #fa7370;
+  bottom: 0;
+}
+
+.wave::before,
+.wave::after {
+  content: "";
+  display: block;
+  position: absolute;
+  border-radius: 100% 50%;
+}
+
+.wave::before {
+  width: 55%;
+  height: 109%;
+  background-color: #fff;
+  right: -1.5%;
+  top: 60%;
+}
+.wave::after {
+  width: 55%;
+  height: 100%;
+  background-color: #fa7370;
+  left: -1.5%;
+  top: 40%;
+}
+
+.circle {
+  background: #f58877;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+}
+
+.custom-shape {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape svg {
+  position: relative;
+  display: block;
+  width: calc(140% + 1.3px);
+  height: 374px;
+}
+
+.custom-shape .shape-fill {
+  fill: #ffffff;
+}
+
+.clip-right {
+  clip-path: polygon(0 0, 64% 0, 100% 100%, 0% 100%);
+}
