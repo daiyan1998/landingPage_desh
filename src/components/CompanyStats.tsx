@@ -1,3 +1,4 @@
+import * as motion from "motion/react-client";
 import Circle from "./Circle";
 
 const statsData = [
@@ -34,10 +35,30 @@ const CompanyStats = () => {
           solutions in time and within budget.a
         </p>
       </div>
-      <div className="grid md:grid-cols-3 grid-cols-1 gap-10">
+      <motion.div
+        variants={{
+          hidden: { opacity: 0 },
+          visible: {
+            opacity: 1,
+            transition: { staggerChildren: 0.3 },
+          },
+        }}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        className="grid md:grid-cols-3 grid-cols-1 gap-10"
+      >
         {statsData.map((stat) => (
-          <div
+          <motion.div
             key={stat.id}
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.4, ease: "easeOut" },
+              },
+            }}
             className="w[200px] h-[222px] flex flex-col gap-2 text-center shadow-lg p-5"
           >
             <div className="flex justify-center">
@@ -45,9 +66,9 @@ const CompanyStats = () => {
             </div>
             <h2 className="text-2xl">{stat.value}</h2>
             <p className="text-[#A0A0A0] ">{stat.description}</p>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       {/* style */}
       <Circle className="absolute top-0 left-0 opacity-20 transform -translate-x-0 -translate-y-2/3 z-10" />
     </div>

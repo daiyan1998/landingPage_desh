@@ -1,17 +1,29 @@
 import Circle from "./Circle";
+import * as motion from "motion/react-client";
 
 const Banner = () => {
   return (
-    <div className=" bg-[#FA7370] relative z-10 h-screen pt-24 px-5">
+    <div className=" bg-[#FA7370] relative z-10    pt-24 px-5">
       <div className="container mx-auto flex md:flex-row flex-col justify-center gap-32 z-30 relative">
-        <div className="flex flex-col gap-4 justify-center">
-          <h1 className="font-poppins font-bold md:text-[3.75rem] text-[2rem]  tracking-[0] text-white">
+        <div className="flex flex-col justify-center">
+          <h1 className="font-poppins font-bold md:text-[3.75rem] text-[2rem]   text-white">
             Outstanding Business
           </h1>
-          <h2 className="font-poppins font-normal md:text-[3.75rem] text-[2rem]  tracking-[0] text-white">
+          <motion.h2
+            animate={{ opacity: [1, 0, 1], y: [0, -15, 0] }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "linear",
+              times: [0, 0.5, 1],
+            }}
+            className="font-poppins font-normal md:text-[3.75rem] text-[2rem]  text-white mb-4"
+          >
             Needs Better Apps
-          </h2>
-          <div className="text-[18px] text-white">We build impactful Apps</div>
+          </motion.h2>
+          <div className="text-[18px] text-white mb-4">
+            We build impactful Apps
+          </div>
           <div>
             <button className="border-2 border-white text-white rounded-4xl p-2">
               Contact us
@@ -19,13 +31,17 @@ const Banner = () => {
           </div>
         </div>
         {/* mobile view */}
-        <div className="md:flex justify-center items-center md:block hidden">
+        <motion.div
+          animate={{ y: [0, -20, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+          className="md:flex justify-center items-center  hidden"
+        >
           <img
             src="mobile.png"
             alt=""
             className="w-[400px] h-[720px] relative z-10"
           />
-        </div>
+        </motion.div>
       </div>
       {/* style */}
       <div className="custom-shape">

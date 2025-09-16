@@ -1,3 +1,4 @@
+import { AnimateInView } from "./AnimatedList";
 import SectionTitle from "./SectionTitle";
 import Card from "./shared/Card";
 
@@ -49,7 +50,7 @@ const OurServices = () => {
         highlight="Service"
         highlightClass="text-[#FA8370]"
       />
-      <div className="container mx-auto flex flex-wrap gap-4 justify-center">
+      <AnimateInView className="container mx-auto flex flex-wrap gap-4 justify-center">
         {services.map((service) => (
           <Card
             key={service.id}
@@ -59,7 +60,7 @@ const OurServices = () => {
             variant="service"
           />
         ))}
-      </div>
+      </AnimateInView>
     </div>
   );
 };

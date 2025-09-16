@@ -1,7 +1,7 @@
-import React from "react";
 import SectionTitle from "./SectionTitle";
 import Card from "./shared/Card";
 import Circle from "./Circle";
+import { AnimateInView } from "./AnimatedList";
 const ourProducts = [
   {
     id: 1,
@@ -42,7 +42,7 @@ const DevelopedProject = () => {
         highlight="Developed"
         highlightClass="text-[#FA8370]"
       />
-      <div className="flex flex-wrap gap-4 justify-center items-center relative z-50">
+      <AnimateInView className="flex flex-wrap gap-4 justify-center items-center relative z-50">
         {ourProducts.map((product) => (
           <Card
             key={product.id}
@@ -51,7 +51,7 @@ const DevelopedProject = () => {
             variant="product"
           />
         ))}
-      </div>
+      </AnimateInView>
       <Circle className="absolute h-[1000px] w-[1000px] opacity-30 top-0 right-0 transform translate-x-50 -translate-y-60  z-0" />
     </div>
   );

@@ -41,7 +41,7 @@ const Footer = () => {
 
             {section.type === "list" && (
               <ul className="space-y-1">
-                {section.items.map((item, j) => (
+                {section.items?.map((item, j) => (
                   <li key={j}>
                     <a href={item.href} className="hover:underline">
                       {item.label}
@@ -55,7 +55,7 @@ const Footer = () => {
               <>
                 <p className="whitespace-pre-line">{section.content}</p>
                 <div className="flex gap-2">
-                  {section.social.map((s, idx) => (
+                  {section.social?.map((s, idx) => (
                     <a key={idx} href={s.href} aria-label={s.label}>
                       <div className="size-5 bg-gray-400 rounded-full"></div>
                     </a>
